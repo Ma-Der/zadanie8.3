@@ -18,7 +18,9 @@ var CelToFahrenheit = function() {
 
 			else if (temperatureC > 14 && temperatureC <= 25)
 				Celsiusoutput.innerHTML = temperatureC + '&deg' + ' C is: '+ FahrenheitTemp + '&deg' + ' F' + '<br>' + 'It is becoming hotter and hotter, wera a t-shirt' + '<br><br>' + Celsiusoutput.innerHTML;
-	}
+      else if (temperatureC > 25)
+        Celsiusoutput.innerHTML = temperatureC + '&deg' + ' C is: '+ FahrenheitTemp + '&deg' + ' F' + '<br>' + '<br><br>' + Celsiusoutput.innerHTML;
+  }
 };
 
 //Function Fahrenheit to Celsiuses
@@ -38,7 +40,9 @@ var FahrenheitToCelsius = function() {
 
     			else if (CelsiusTemp > 14 && CelsiusTemp <= 25)
     				Fahrenheitoutput.innerHTML = temperatureF + '&deg' + ' F is: '+ CelsiusTemp + '&deg' + ' C' + '<br>' + 'It is becoming hotter and hotter, wera a t-shirt' + '<br><br>' + Fahrenheitoutput.innerHTML;
-    	}
+          else if (CelsiusTemp > 25)
+          Fahrenheitoutput.innerHTML = temperatureF + '&deg' + ' F is: '+ CelsiusTemp + '&deg' + ' C' + '<br>' + '<br><br>' + Fahrenheitoutput.innerHTML;
+      }
 };
 var Celsiusoutput = document.getElementById('Celsius-output');
 
