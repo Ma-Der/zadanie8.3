@@ -1,65 +1,60 @@
 'use strict';
 
+// Function that displays information and adds new line
+
+var returnInformation = function(info){
+  //var output = document.getElementById('output');
+  output.innerHTML = output.innerHTML + info + '<br><br>';
+};
+
+// Function that takes Celsius temperature and give back some fun facts about weather
+
+var funfact = function(temperatureC){
+  if(temperatureC <= 0){
+    returnInformation('Wear a coat, it is cold out there.');
+  }
+  else if (temperatureC > 0 && temperatureC <= 14)
+    returnInformation('Spring is coming, look for lighter clothes.');
+  else if (temperatureC > 14 && temperatureC <= 25)
+    returnInformation('It is becoming hotter and hotter, wear a t-shirt');
+  else if (temperatureC > 25)
+    returnInformation('I am melting out here');
+};
+
 // Function Celsius to Fahrenheit
 
-var CelToFahrenheit = function() {
-  var temperatureC = window.prompt('Type the temperature in Celsius');
+var celsiusToFahrenheit = function(temperatureC) {
+  temperatureC = window.prompt('Type the temperature in Celsius');
 	if(isNaN(temperatureC) || temperatureC == '' || temperatureC == null){
-			Celsiusoutput.innerHTML = 'Type a number' + '<br><br>' + Celsiusoutput.innerHTML;
+			returnInformation('Type a number');
 	}
 	else {
-			var FahrenheitTemp = temperatureC * 1.8 + 32;
-
-			if(temperatureC <= 0){
-				Celsiusoutput.innerHTML = temperatureC + '&deg' + ' C is: '+ FahrenheitTemp + '&deg' + ' F' + '<br>' + 'Wear a coat, it is cold out there.' + '<br><br>' + Celsiusoutput.innerHTML;
-			}
-			else if (temperatureC > 0 && temperatureC <= 14)
-				Celsiusoutput.innerHTML = temperatureC + '&deg' + ' C is: '+ FahrenheitTemp + '&deg' + ' F' + '<br>' + 'Spring is coming, look for lighter clothes.' + '<br><br>' + Celsiusoutput.innerHTML;
-
-			else if (temperatureC > 14 && temperatureC <= 25)
-				Celsiusoutput.innerHTML = temperatureC + '&deg' + ' C is: '+ FahrenheitTemp + '&deg' + ' F' + '<br>' + 'It is becoming hotter and hotter, wera a t-shirt' + '<br><br>' + Celsiusoutput.innerHTML;
-      else if (temperatureC > 25)
-        Celsiusoutput.innerHTML = temperatureC + '&deg' + ' C is: '+ FahrenheitTemp + '&deg' + ' F' + '<br>' + '<br><br>' + Celsiusoutput.innerHTML;
+			var fahrenheitTemp = temperatureC * 1.8 + 32;
+      returnInformation(temperatureC + '&deg' + ' C' + ' is ' + fahrenheitTemp + '&deg' + ' F');
+      funfact(temperatureC);
   }
 };
 
 //Function Fahrenheit to Celsiuses
 
-var FahrenheitToCelsius = function() {
-  var temperatureF = window.prompt('Type the temperature in Fahrenheits');
+var fahrenheitToCelsius = function(temperatureF) {
+    temperatureF = window.prompt('Type the temperature in Fahrenheits');
     	if(isNaN(temperatureF) || temperatureF == '' || temperatureF == null){
-    			Fahrenheitoutput.innerHTML = 'Type a number' + '<br><br>' + Fahrenheitoutput.innerHTML;
+    			returnInformation('Type a number');
     	}
     	else {
-    			var CelsiusTemp = (temperatureF-32) / 1.8;
-    			if(CelsiusTemp <= 0){
-    				Fahrenheitoutput.innerHTML = temperatureF + '&deg' + ' F is: '+ CelsiusTemp + '&deg' + ' C' + '<br>' + 'Wear a coat, it is cold out there.' + '<br><br>' + Fahrenheitoutput.innerHTML;
-    			}
-    			else if (CelsiusTemp > 0 && CelsiusTemp <= 14)
-    				Fahrenheitoutput.innerHTML = temperatureF + '&deg' + ' F is: '+ CelsiusTemp + '&deg' + ' C' + '<br>' + 'Spring is coming, look for lighter clothes.' + '<br><br>' + Fahrenheitoutput.innerHTML;
-
-    			else if (CelsiusTemp > 14 && CelsiusTemp <= 25)
-    				Fahrenheitoutput.innerHTML = temperatureF + '&deg' + ' F is: '+ CelsiusTemp + '&deg' + ' C' + '<br>' + 'It is becoming hotter and hotter, wera a t-shirt' + '<br><br>' + Fahrenheitoutput.innerHTML;
-          else if (CelsiusTemp > 25)
-          Fahrenheitoutput.innerHTML = temperatureF + '&deg' + ' F is: '+ CelsiusTemp + '&deg' + ' C' + '<br>' + '<br><br>' + Fahrenheitoutput.innerHTML;
+    			var temperatureC = (temperatureF-32) / 1.8;
+          returnInformation(temperatureF + '&deg' + ' F' + ' is ' + temperatureC + '&deg' + ' C');
+          funfact(temperatureC);
       }
 };
-var Celsiusoutput = document.getElementById('Celsius-output');
-
-Celsiusoutput.innerHTML =  '<br><br>' + Celsiusoutput.innerHTML;
 
 var buttonC = document.getElementById('Celsius-button');
-
 buttonC.addEventListener('click', function(){
-  CelToFahrenheit();
+  celsiusToFahrenheit();
 });
 
-var Fahrenheitoutput = document.getElementById('Fahrenheit-output');
-
-Fahrenheitoutput.innerHTML = '<br><br>' + Fahrenheitoutput.innerHTML;
-
 var buttonF = document.getElementById('Fahrenheit-button');
-
 buttonF.addEventListener('click', function(){
-	FahrenheitToCelsius();
+	fahrenheitToCelsius();
 });

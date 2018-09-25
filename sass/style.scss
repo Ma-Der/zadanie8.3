@@ -7,6 +7,13 @@ body {
 	justify-content: space-around;
 	max-width: 1200px;
 	margin: 0 auto;
+	.button-align {
+		display: flex;
+		padding: 20px;
+	}
+	.greet {
+		display: flex;
+	}
 }
 button {
 	display: inline-block;
@@ -37,13 +44,7 @@ button {
 		background-color: #fff;
 	}
 }
-.button-align {
-	display: flex;
-	padding: 20px;
-}
-.greet {
-	display: flex;
-}
+
 h1 {
 	text-align: center;
 	text-transform: uppercase;
